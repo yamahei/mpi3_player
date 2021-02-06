@@ -19,7 +19,7 @@ $ sudo apt-get install mpg321
 
 ```
 # 取得
-$ git clone https://github.com/yamahei/mpi3.git
+$ git clone https://github.com/yamahei/mpi3_player.git mpi3
 
 # 配置
 $ sudo mv mpi3 /opt/
