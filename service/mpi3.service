@@ -1,11 +1,11 @@
-  [Unit]
-  Description=mpi3
-  
-  [Service]
-  ExecStart=/opt/mpi3/bin/mpi3_start.sh /home/pi/Music
-  ExecStop=/opt/mpi3/bin/mpi3_stop.sh /home/pi/Music
-  Restart=always
-  Type=simple
-  
-  [Install]
-  WantedBy=multi-user.target
+[Unit]
+Description=mpi3
+
+[Service]
+ExecStart=/opt/mpi3/bin/mpi3_start.sh /home/pi/Music
+ExecStop=/opt/mpi3/bin/mpi3_stop.sh /home/pi/Music
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
