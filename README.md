@@ -27,6 +27,7 @@ $ sudo chmod +x /opt/mpi3/bin/*
 
 # サービス化
 $ sudo cp /opt/mpi3/service/mpi3.service /lib/systemd/system/
+$ sudo chown root. /lib/systemd/system/mpi3.service
 $ sudo systemctl daemon-reload
 $ sudo systemctl enable mpi3 
 ```
