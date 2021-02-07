@@ -13,9 +13,8 @@ fi
 
 IFS=$'\n'
 while true; do
-  LIST=($(ls -1 -R ${DIR} | grep -i mp3 | shuf)) 
+  LIST=($(find $(printf %q "${DIR}") -name "*.mp3" | grep -i mp3 | shuf)) 
   for f in "${LIST[@]}"; do
-    echo "mp3 file: ${DIR}/${f}"
-    ${CMD} "${DIR}/${f}"
+    ${CMD} $(printf %q "${f}")
   done
 done
