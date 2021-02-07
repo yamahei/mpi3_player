@@ -44,7 +44,19 @@ $ sudo systemctl start mpi3
 $ sudo journalctl -f -u mpi3
 ```
 
+### 空白を含むファイル・ディレクトリ名の処理
+
+```
+$ sudo apt-get install rename
+$ cd /home/pi/Music
+$ find . -name "* *" | rename 's/ /_/g' # エラーでなくなるまで何回か流す
+```
+* 【参考】[ファイル/ディレクトリ名に空白が入っているファイル/ディレクトリの空白を下線_に置換するワンライナー](https://www.nemotos.net/?p=674)
+
+
 ### スキップコマンドの有効化
+
+ATTENTION: 実機確認NG、要修正
 
 スイッチがGPIO14→GNDで配線されている前提です。
 ピンを変える場合は`mpi3_gpio.py`内にハードコードしてる部分を修正します。
@@ -55,12 +67,4 @@ $ sudo crontab -e
 $ pip install RPi.GPIO
 $ sudo reboot
 ```
-
-### 空白を含むファイル・ディレクトリ名の処理
-
-```
-$ sudo apt-get install rename
-$ cd /home/pi/Music
-$ find . -name "* *" | rename 's/ /_/g' # エラーでなくなるまで何回か流す
-```
-* 【参考】[ファイル/ディレクトリ名に空白が入っているファイル/ディレクトリの空白を下線_に置換するワンライナー](https://www.nemotos.net/?p=674)
+* 【参考】[GPIOエッジ検出コールバック関数](https://tomosoft.jp/design/?p=8685)
