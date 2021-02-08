@@ -56,15 +56,19 @@ $ find . -name "* *" | rename 's/ /_/g' # エラーでなくなるまで何回�
 
 ### スキップコマンドの有効化
 
-ATTENTION: 実機確認NG、要修正
-
-スイッチがGPIO14→GNDで配線されている前提です。
-ピンを変える場合は`mpi3_gpio.py`内にハードコードしてる部分を修正します。
-
 ```
 $ sudo crontab -e
-+ @reboot python /opt/mpi3/bin/mpi3_gpio.py
-$ pip install RPi.GPIO
++ @reboot /opt/mpi3/bin/mpi3_gpio.sh
 $ sudo reboot
 ```
-* 【参考】[GPIOエッジ検出コールバック関数](https://tomosoft.jp/design/?p=8685)
+
+タクトスイッチを押したときにスキップコマンドを実行します。
+
+![回路図](circuit.png)
+
+スイッチがGPIO14→GNDで配線されている前提です。
+ピンを変える場合は`mpi3_gpio.sh`内にハードコードしてる部分を修正します。
+
+* 【参考】[RaspberryPi の GPIO のプルアップ/ダウン設定について](http://manabi.science/library/2015/09132143/)
+* 【参考】[Raspberry PiのGPIOピンの配置図カード](http://herb.h.kobe-u.ac.jp/raspiinfo/gpio_pins_card.html)
+
